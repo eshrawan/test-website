@@ -37,7 +37,7 @@ def bubblePage():
     c = request.args.get('C')
     d = request.args.get('D')
     e = request.args.get('E')
-    number = [a,b,c,d,e]
+    number = [int(a),int(b),int(c),int(d),int(e)]
     numberlen = len(number)
     for k in range(numberlen-1, 0 ,-1):
         for i in range (k):
