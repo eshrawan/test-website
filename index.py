@@ -3,12 +3,32 @@ import os
 app = Flask(__name__)
 
 @app.route("/")
-def indexPage():
+def homePage():
     return "Hello User"
 
-@app.route("/thankyou")
-def thankyoupage():
-    return "Thank you"
+@app.route("/add", methods=["GET","POST"])
+def addPage():
+    a = request.args.get('A')
+    b = request.args.get('B')
+    return str(int(a)+int(b))
+
+@app.route("/subtract", methods=["GET","POST"])
+def subtractPage():
+    a = request.args.get('A')
+    b = request.args.get('B')
+    return str(int(a)-int(b))
+
+@app.route("/multiply", methods=["GET","POST"])
+def multiplyPage():
+    a = request.args.get('A')
+    b = request.args.get('B')
+    return str(int(a)*int(b))
+
+@app.route("/divide", methods=["GET","POST"])
+def dividePage():
+    a = request.args.get('A')
+    b = request.args.get('B')
+    return str((int(a)/float(b)))
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
