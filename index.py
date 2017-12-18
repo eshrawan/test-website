@@ -32,7 +32,7 @@ def dividePage():
 
 @app.route("/bubblesort", methods=["GET","POST"])
 def bubblePage():
-    a= request.args.get('A')
+    a = request.args.get('A')
     b = request.args.get('B')
     c = request.args.get('C')
     d = request.args.get('D')
@@ -43,7 +43,7 @@ def bubblePage():
         for i in range (k):
             if(number[i+1]< number[i]):
                 number[i],number[i+1] = number[i+1],number[i]
-    return(number)
+    return str(number)
 
 
 if __name__ == "__main__":
