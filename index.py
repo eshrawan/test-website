@@ -43,7 +43,7 @@ def bubblePage():
         for i in range (k):
             if(number[i+1]< number[i]):
                 number[i],number[i+1] = number[i+1],number[i]
-    print(number)
+    return(number)
 
 
 if __name__ == "__main__":
