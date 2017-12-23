@@ -1,10 +1,10 @@
 from flask import Response, Flask, request, current_app as app
 import os
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.route("/")
 def homePage():
-    return "Hello User"
+    return app.send_static_file('index.html')
 
 @app.route("/add", methods=["GET","POST"])
 def addPage():
@@ -48,4 +48,5 @@ def bubblePage():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port = port, debug = True)
+    app.run(host = '0.0.0.0', port=port, debug =True)
+
