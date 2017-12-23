@@ -12,11 +12,15 @@ def formPage():
 
 @app.route("/submit", methods=["POST"])
 def submitPage():
-    a = request.args.post('fvalue')
-    b = request.args.post('svalue')
-    c = request.args.post('tvalue')
-    d = request.args.post('fovalue')
-    e = request.args.post('fivalue')
+    a = request.form.get('fvalue')
+try:
+    value=int(a)
+except ValueError:
+    print("This is not a whole number.")
+    b = request.form.get('svalue')
+    c = request.form.get('tvalue')
+    d = request.form.get('fovalue')
+    e = request.form.get('fivalue')
     number = [int(a),int(b),int(c),int(d),int(e)]
     numberlen = len(number)
     for k in range(numberlen-1, 0 ,-1):
@@ -24,7 +28,7 @@ def submitPage():
             if(number[i+1]< number[i]):
                 number[i],number[i+1] = number[i+1],number[i]
     return str(number)
-    return app.send_static_file('result.html')
+return app.send_static_file('result.html')
 
 @app.route("/add", methods=["GET","POST"])
 def addPage():
