@@ -44,7 +44,7 @@ def submitPage():
             if(number[i+1]< number[i]):
                 number[i],number[i+1] = number[i+1],number[i]
     return str(number)
-    return app.send_static_file('result.html')
+    
 
 @app.route("/add", methods=["GET","POST"])
 def addPage():
