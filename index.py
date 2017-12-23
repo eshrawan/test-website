@@ -6,6 +6,14 @@ app = Flask(__name__, static_url_path='/static')
 def homePage():
     return app.send_static_file('index.html')
 
+@app.route("/form")
+def formPage():
+    return app.send_static_file('form.html')
+
+@app.route("/submit", methods=["POST"])
+def submitPage():
+    return app.send_static_file('result.html')
+
 @app.route("/add", methods=["GET","POST"])
 def addPage():
     a = request.args.get('A')
