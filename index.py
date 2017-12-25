@@ -16,27 +16,32 @@ def submitPage():
     try:
         value=int(a)
     except ValueError:
-        return("The first value is not a number.")
+        print("The first value is not a number.")
+        return app.send_static_file('result.html')
     b = request.form.get('svalue')
     try:
         value=int(b)
     except ValueError:
-        return("The second value is not a number.")
+        print("The second value is not a number.")
+        return app.send_static_file('result.html')
     c = request.form.get('tvalue')
     try:
         value=int(c)
     except ValueError:
-        return("The third value is not a number.")
+        print("The third value is not a number.")
+        return app.send_static_file('result.html')
     d = request.form.get('fovalue')
     try:
         value=int(d)
     except ValueError:
-        return("The fourth value is not a number.")
+        print("The fourth value is not a number.")
+        return app.send_static_file('result.html')
     e = request.form.get('fivalue')
     try:
         value=int(e)
     except ValueError:
-        return("The fifth value is not a number.")
+        print("The fifth value is not a number.")
+        return app.send_static_file('result.html')
     number = [int(a),int(b),int(c),int(d),int(e)]
     numberlen = len(number)
     for k in range(numberlen-1, 0 ,-1):
